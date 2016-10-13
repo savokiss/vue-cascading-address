@@ -5,7 +5,6 @@ import Resource from 'vue-resource'
 import App from './App'
 import 'bootstrap/dist/css/bootstrap.css'
 
-Vue.use(Resource)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
