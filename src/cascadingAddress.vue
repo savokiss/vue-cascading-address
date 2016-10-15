@@ -1,7 +1,6 @@
 <template>
   <div>
-    <input v-model="all" @click="open('show')" type="text" class="form-control"
-           :class="{submmited : !p }" readonly="true"/>
+    <input v-model="model" @click="open()" type="text" class="form-control" :class="inputClass" readonly/>
 
     <div v-show="show" class="cascading-address">
       <ul>
@@ -26,12 +25,12 @@
         <label class="control-label text-success">
           <span class="text-muted">地址：</span>
           {{ p }} {{ c }} {{ a }} {{ d }}
-          <!--{{ p }} {{ c }}-->
         </label>
       </div>
 
       <div class="panel-footer text-right">
-        <button @click="clear()" class="btn btn-link btn-sm">清空</button>
+        <button @click="close()" class="btn btn-link btn-sm">关闭</button>
+        <button @click="clear()" class="btn btn-default btn-sm">清空</button>
         <button @click="confirm()" class="btn btn-success btn-sm" :disabled="!(p&&c) && p!='国外'">确定</button>
       </div>
     </div>
@@ -63,22 +62,16 @@
   .cascading-address .form-group {
     margin: 10px;
   }
-
-  .input.error {
-    border: solid 1px #a94442;
-  }
-
-  .text-danger {
-    position: relative;
-    left: -2px;
-  }
 </style>
 <script lang="babel">
   import addressData from './cascadingAddressData.json'
   export default{
+    props: {
+      inputClass: String
+    },
     data(){
       return {
-        all: '',
+        model: '',
         p: '',
         c: '',
         a: '',
@@ -119,7 +112,7 @@
         // 任何数据变动都更新完整地址
         this.$watch(function () {
           var address = (this.p + ' ' + this.c + ' ' + this.a + ' ' + this.d);
-          this.all = address.replace(/undefined *|   /g,'');
+          this.model = address.replace(/undefined *|   /g,'');
         }).bind(this)
       },
       clear(){
@@ -128,11 +121,19 @@
         this.a = '';
         this.d = '';
       },
-      open(action){
-        this.show = action === 'show';
+      open(){
+        this.show = true;
+      },
+      close(){
+        this.show = false;
       },
       confirm(){
         this.show = false;
+        this.$emit('confirm', {
+          province: this.p,
+          city: this.c,
+          area: this.a
+        })
       },
       setProvince(p){
         this.p = p;
