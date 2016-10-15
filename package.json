@@ -1,9 +1,8 @@
 {
   "name": "vue-cascading-address",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "A Vue.js project",
   "author": "savokiss <jaynaruto@qq.com>",
-  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js"
