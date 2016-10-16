@@ -14,7 +14,7 @@
 npm install vue-cascading-address --save
 ```
 
-### JS
+### ES6
 ```
 import cascadingAdress from 'vue-cascading-address'
 export {
@@ -39,7 +39,7 @@ export {
 ### Props
 | name        | type    | required | description |
 | ---------- | --------| -------- | ---------------- |
-| inputClass | String  | false    | custom class added to input|
+| inputClass | String  | false    | custom classes added to input like 'input-sm'|
 
 
 ### Events

@@ -7,7 +7,7 @@
     </div>
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
-        <cascading-address @confirm="confirmCity"></cascading-address>
+        <cascading-address @confirm="confirmCity" input-class="input-sm"></cascading-address>
       </div>
 
     </div>
