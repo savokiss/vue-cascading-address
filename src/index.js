@@ -1,3 +1,1 @@
-import cascadingAddress from './cascadingAddress'
-
-export default cascadingAddress;
+module.exports = require('./cascadingAddress');
