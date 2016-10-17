@@ -1,6 +1,7 @@
 # VueJS cascading address component
 
 [![CircleCI](https://img.shields.io/circleci/project/savokiss/vue-cascading-address/master.svg)](https://circleci.com/gh/savokiss/vue-cascading-address)
+[![npm version](https://img.shields.io/npm/v/vue-cascading-address.svg)](https://www.npmjs.com/package/vue-cascading-address)
 
 ## How it looks:
 ![](./static/demo.gif)
