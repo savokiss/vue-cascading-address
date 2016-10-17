@@ -1,0 +1,10 @@
+machine:
+  node:
+    version: 6
+
+deployment:
+  npm:
+    tag: /v\d.\d.\d/
+    commands:
+      - echo -e "$NPM_USERNAME\n$NPM_PASSWORD\n$NPM_EMAIL" | npm login
+      - npm publish

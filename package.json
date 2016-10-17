@@ -1,12 +1,25 @@
 {
-  "name": "pinyin",
-  "version": "1.0.0",
-  "description": "A Vue.js project",
+  "name": "vue-cascading-address",
+  "version": "0.1.4",
+  "description": "vue cascading address component",
   "author": "savokiss <jaynaruto@qq.com>",
-  "private": true,
+  "main": "src/index.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/savokiss/vue-cascading-address.git"
+  },
+  "keywords": [
+    "vue",
+    "bootstrap",
+    "address"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/savokiss/vue-cascading-address/issues"
   },
   "dependencies": {
     "bootstrap": "^3.3.6",

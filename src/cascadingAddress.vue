@@ -1,7 +1,6 @@
 <template>
   <div>
-    <input v-model="all" @click="open('show')" type="text" class="form-control"
-           :class="{submmited : !p }" readonly="true"/>
+    <input v-model="model" @click="open()" type="text" class="form-control" :class="inputClass" readonly/>
 
     <div v-show="show" class="cascading-address">
       <ul>
@@ -16,8 +15,8 @@
         </li>
       </ul>
 
-      <ul v-show="dists.length">
-        <li v-for="item in dists" @click="setArea(item.s)" :class="{'label label-success': a === item.s}">
+      <ul v-show="areas.length">
+        <li v-for="item in areas" @click="setArea(item.s)" :class="{'label label-success': a === item.s}">
           {{ item.s }}
         </li>
       </ul>
@@ -25,13 +24,13 @@
       <div v-show="p" class="form-group text-left">
         <label class="control-label text-success">
           <span class="text-muted">地址：</span>
-          {{ p }} {{ c }} {{ a }} {{ d }}
-          <!--{{ p }} {{ c }}-->
+          {{ p }} {{ c }} {{ a }}
         </label>
       </div>
 
       <div class="panel-footer text-right">
-        <button @click="clear()" class="btn btn-link btn-sm">清空</button>
+        <button @click="close()" class="btn btn-link btn-sm">关闭</button>
+        <button @click="clear()" class="btn btn-default btn-sm">清空</button>
         <button @click="confirm()" class="btn btn-success btn-sm" :disabled="!(p&&c) && p!='国外'">确定</button>
       </div>
     </div>
@@ -63,95 +62,73 @@
   .cascading-address .form-group {
     margin: 10px;
   }
-
-  .input.error {
-    border: solid 1px #a94442;
-  }
-
-  .text-danger {
-    position: relative;
-    left: -2px;
-  }
 </style>
 <script lang="babel">
   import addressData from './cascadingAddressData.json'
   export default{
+    props: {
+      inputClass: String
+    },
     data(){
       return {
-        all: '',
         p: '',
         c: '',
         a: '',
-        d: '',
         provinces: addressData,
-        dists: '',
+        areas: '',
         cities: '',
-        show: false,
-        set: ''
+        show: false
+      }
+    },
+    computed: {
+      model(){
+        return this.p ? (this.p + ' ' + this.c + ' ' + this.a) : '';
       }
     },
     methods: {
-      init(){
-        // 根据选中的 p(省份) 值更新 cities(城市列表)
-        this.$watch('p', function (newValue) {
-          if(newValue) {
-            var result = this.provinces.filter(function (v) {
-              return v.p === newValue;
-            });
-            this.cities = result[0].c;
-          } else {
-            this.cities = [];
-          }
-        }).bind(this)
-
-        // 类似以上
-        this.$watch('c', function (newValue) {
-          if(newValue) {
-            var result = this.cities.filter(function (v) {
-              return v.n === newValue;
-            });
-            this.dists = result[0].a;
-          } else {
-            this.dists = [];
-          }
-        }).bind(this)
-
-        // 任何数据变动都更新完整地址
-        this.$watch(function () {
-          var address = (this.p + ' ' + this.c + ' ' + this.a + ' ' + this.d);
-          this.all = address.replace(/undefined *|   /g,'');
-        }).bind(this)
-      },
       clear(){
         this.p = '';
         this.c = '';
         this.a = '';
-        this.d = '';
+        this.cities = [];
+        this.areas = [];
       },
-      open(action){
-        this.show = action === 'show';
+      open(){
+        this.show = true;
+      },
+      close(){
+        this.show = false;
       },
       confirm(){
-        this.show = false;
+        this.close();
+        this.$emit('confirm', {
+          province: this.p,
+          city: this.c,
+          area: this.a
+        })
       },
       setProvince(p){
         this.p = p;
         this.c = '';
         this.a = '';
-        this.d = '';
+        this.areas = [];
+        // 根据选中的 p(省份) 值更新 cities(城市列表)
+        var result = this.provinces.filter(function (v) {
+          return v.p === p;
+        });
+        this.cities = result[0].c || [];
       },
       setCity(c){
         this.c = c;
         this.a = '';
-        this.d = '';
+        var result = this.cities.filter(function (v) {
+          return v.n === c;
+        });
+        this.areas = result[0].a || [];
       },
       setArea(a){
         this.a = a;
-        this.d = '';
       }
-    },
-    mounted(){
-      this.init();
     }
   }
 </script>
