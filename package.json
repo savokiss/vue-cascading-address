@@ -3,7 +3,7 @@
   "version": "0.1.4",
   "description": "vue cascading address component",
   "author": "savokiss <jaynaruto@qq.com>",
-  "main": "src/index.js",
+  "main": "src/cascadingAddress.vue",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js"
