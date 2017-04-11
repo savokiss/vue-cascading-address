@@ -4,8 +4,8 @@ var path = require('path')
 module.exports = {
   build: {
     env: require('./prod.env'),
-    index: path.resolve(__dirname, '../dist/index.html'),
-    assetsRoot: path.resolve(__dirname, '../dist'),
+    index: path.resolve(__dirname, '../docs/index.html'),
+    assetsRoot: path.resolve(__dirname, '../docs'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     productionSourceMap: true,
@@ -15,13 +15,6 @@ module.exports = {
     // npm install --save-dev compression-webpack-plugin
     productionGzip: false,
     productionGzipExtensions: ['js', 'css']
-  },
-  docs: {
-    index: path.resolve(__dirname, 'gh-pages/index.html'),
-    assetsRoot: path.resolve(__dirname, 'gh-pages'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '',
-    productionSourceMap: true
   },
   dev: {
     env: require('./dev.env'),
