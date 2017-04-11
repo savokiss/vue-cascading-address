@@ -33,6 +33,7 @@
     methods: {
       confirmCity(data){
         this.confirmData = data;
+        console.log('This is new')
       }
     }
   }

@@ -14,7 +14,6 @@
   },
   "keywords": [
     "vue",
-    "bootstrap",
     "address"
   ],
   "license": "MIT",
@@ -22,8 +21,7 @@
     "url": "https://github.com/savokiss/vue-cascading-address/issues"
   },
   "dependencies": {
-    "bootstrap": "^3.3.6",
-    "vue": "^2.0.1"
+    "vue": "^2.2.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
