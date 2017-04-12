@@ -1,6 +1,6 @@
 {
   "name": "vue-cascading-address",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "vue cascading address component",
   "author": "savokiss <jaynaruto@qq.com>",
   "main": "src/cascadingAddress.vue",
