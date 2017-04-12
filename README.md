@@ -8,8 +8,7 @@
 ![](./static/demo.gif)
 
 ## Dependencies
-- VueJS 2.0.1
-- Bootstrap 3.3.6
+- VueJS 2.0+
 
 ## Usage
 
@@ -44,6 +43,7 @@ export {
 | name        | type    | required | description |
 | ---------- | --------| -------- | ---------------- |
 | inputClass | String  | false    | custom classes added to input like 'input-sm'|
+| readonly | Boolean  | false    | set the input to be readonly |
 
 
 ### Events
