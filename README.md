@@ -3,6 +3,7 @@
 [![CircleCI](https://img.shields.io/circleci/project/savokiss/vue-cascading-address/master.svg)](https://circleci.com/gh/savokiss/vue-cascading-address)
 [![npm version](https://img.shields.io/npm/v/vue-cascading-address.svg)](https://www.npmjs.com/package/vue-cascading-address)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/MIT "Feel free to contribute.")
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsavokiss%2Fvue-cascading-address.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsavokiss%2Fvue-cascading-address?ref=badge_shield)
 
 ## How it looks:
 ![](./static/demo.gif)
@@ -50,3 +51,7 @@ export {
 | name       | attributes    | listen to | description |
 | ---------- | --------| -------- | ---------------- |
 | confirm    | (data)  | @confirm    | Emitted after `confirm` button, data structure: { province: String, city: String, area: String} |
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fsavokiss%2Fvue-cascading-address.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fsavokiss%2Fvue-cascading-address?ref=badge_large)
